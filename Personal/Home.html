@@ -420,7 +420,7 @@
             </div>
         </aside>
 
-        <main class="main-content">
+        <main class="main-content main-content-transition">
             <section class="hero">
                 <div class="hero-text">
                     <h1>Sanjay<br>Krishnan</h1>
@@ -462,7 +462,7 @@
 
         <div class="toggle-content state-1" id="toggleContent">
             <div class="profile-picture">
-                <img src="Images/Portfolio-Icon.png" alt="Portfolio Icon">
+                <img src="Images/about-me-professional.png" alt="Portfolio Icon">
             </div>
             <div class="toggle-text">
                 <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>
@@ -500,7 +500,6 @@
 
         function fadeInPage() {
             const mainContent = document.querySelector('.main-content');
-            mainContent.classList.add('main-content-transition');
             setTimeout(() => {
                 mainContent.classList.add('active');
             }, 50);
@@ -549,7 +548,7 @@
                 toggleContent.classList.add('state-1');
                 toggleContent.innerHTML = `
                     <div class="profile-picture">
-                        <img src="Images/Portfolio-Icon.png" alt="Portfolio Icon">
+                        <img src="Images/about-me-professional.png" alt="Portfolio Icon">
                     </div>
                     <div class="toggle-text">
                         <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>

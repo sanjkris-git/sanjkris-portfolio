@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay Krishnan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212; /* Dark background */
+            color: #dcdcdc; /* Light grey text */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            min-height: 100vh;
+        }
+
+        /* Container Layout */
+        .container {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* --- Left Sidebar --- */
+        .sidebar {
+            position: fixed;
+            width: 200px;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            transition: opacity 0.1s ease-out; 
+        }
+
+        /* Navigation */
+        .nav-menu {
+            list-style: none;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #fff;
+        }
+
+        .nav-menu .active a {
+            color: #fff;
+        }
+
+        /* Individual Sliding Underline for Each Nav Item */
+        .nav-menu li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #555;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu li.active::after {
+            transform: scaleX(1);
+        }
+
+        /* Page Transition Styles - Only for main content */
+        .main-content-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .main-content-transition.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: auto;
+        }
+
+        .social-icons a {
+            color: #dcdcdc;
+            font-size: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #fff;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            margin-left: 280px;
+            padding: 60px 80px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Hero Section (Name) */
+        .hero {
+            margin-top: 40px;
+            margin-bottom: 60px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px; 
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 100;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 14px;
+            font-weight: 300;
+            color: #aaa;
+            letter-spacing: 0.5px;
+            margin-bottom: 20%;
+        }
+
+        /* Bottom Content Area (Contact & About) */
+        .bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 20px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* Image Section */
+        .image {
+            width: 500px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .image:hover {
+            transform: translateY(-5px);
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .projects-wrapper {
+            margin-top: 0px;
+        }
+
+        /* About Me Body Section */
+        .about-me-body {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            padding: 60px 80px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-me-body h1 {
+            text-align: center;
+            font-size: 80px;
+            font-weight: 100;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .about-me-body.visible {
+            opacity: 1;
+        }
+
+        /* --- CSS Toggle Switch --- */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            align-self: center; 
+            margin-bottom: 20px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333; 
+            -webkit-transition: .4s;
+            transition: .4s;
+            border: 1px solid #555; 
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #dcdcdc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #e0e1e4; 
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #e0e1e4;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+            background-color: #121212; 
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        /* --- Toggle Content Container (Side-by-Side Flexbox) --- */
+        .toggle-content {
+            transition: background-color 0.5s ease, color 0.5s ease;
+            padding: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            gap: 60px; /* Increased gap for better spacing between image and text */
+        }
+
+        /* State 1: Normal (Dark) */
+        .toggle-content.state-1 {
+            background-color: #121212;
+            color: #dcdcdc;
+        }
+
+        /* State 2: White Background */
+        .toggle-content.state-2 {
+            background-color: #e0e1e4;
+            color: #121212;
+        }
+
+        /* FIXED: Profile Picture Sizing */
+        .profile-picture {
+            flex-shrink: 0;
+            width: 300px; /* Base size of the image container */
+            height: 300px; /* Force perfect square */
+            border-radius: 50%; /* Make container round */
+            overflow: hidden; /* Ensure image stays inside the circle */
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-picture:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image fills the circle perfectly without stretching */
+            display: block;
+        }
+
+        .toggle-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+            max-width: 500px; /* Prevents text from stretching too far wide */
+        }
+
+        .toggle-text p {
+            font-size: 22px; /* Slightly reduced from 25px so it balances nicely with the 300px image */
+            line-height: 1.6;
+            margin: 0; 
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 20px;
+                flex-direction: row;
+                align-items: center;
+            }
+            .nav-menu {
+                display: flex;
+                gap: 15px;
+                margin-bottom: 0;
+            }
+            .social-icons {
+                flex-direction: row;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .image {
+                width: 100%;
+            }
+            .about-me-body {
+                padding: 20px;
+                height: 70px;
+            }
+            .hero h1, .about-me-body h1 {
+                font-size: 50px;
+            }
+            
+            /* Stack the profile picture and text on mobile */
+            .toggle-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+                padding: 20px;
+            }
+            .profile-picture {
+                width: 200px; /* Scale image down slightly on mobile */
+                height: 200px;
+            }
+            .toggle-text p {
+                font-size: 18px; /* Scale text down on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div>
+                <ul class="nav-menu">
+                    <li><a href="Home.html">HOME</a></li>
+                    <li class="active"><a href="Experience.html">EXPERIENCE</a></li>
+                    <li><a href="Projects.html">PROJECTS</a></li>
+                </ul>
+
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/sanjkris/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_san.who_/"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content main-content-transition">
+            <text>
+                hello
+            </text>
+        </main>
+    </div>
+
+    <div class="projects-wrapper">
+        <div class="projects-section">
+            
+        </div>
+    </div>
+    <br>
+
+   
+    <section class="link-bar">
+            <hr style="border-color: #333; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
+                    <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+                    <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
+                    <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
+                </div>
+
+    </section>
+
+    <script>
+        const mainContent = document.querySelector('.main-content');
+        const sidebar = document.querySelector('.sidebar');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        // Page transition functionality - Only affects main content
+        function fadeOutPage() {
+            const mainContent = document.querySelector('.main-content');
+            mainContent.classList.add('main-content-transition');
+            mainContent.classList.remove('active');
+        }
+
+        function fadeInPage() {
+            const mainContent = document.querySelector('.main-content');
+            setTimeout(() => {
+                mainContent.classList.add('active');
+            }, 50);
+        }
+
+        // Navigation click handler with transitions
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.classList.contains('active')) {
+                    e.preventDefault();
+                    fadeOutPage();
+                    
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 300);
+                }
+            });
+        });
+
+        // Initialize page fade-in on load
+        window.addEventListener('load', function() {
+            fadeInPage();
+        });
+
+        // Update active navigation state and sliding underline
+        function updateActiveNav() {
+            const currentPath = window.location.pathname.split('/').pop();
+            const navItems = document.querySelectorAll('.nav-menu li');
+            
+            navItems.forEach(item => {
+                const link = item.querySelector('a');
+                const linkPath = link.getAttribute('href').split('/').pop();
+                if (linkPath === currentPath) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Sidebar scroll fade effect
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            let fadeDistance = mainContent.offsetHeight - window.innerHeight;
+            
+            if (fadeDistance <= 0) {
+                fadeDistance = 500; 
+            }
+
+            const opacity = Math.max(0, 1 - (scrollTop / fadeDistance));
+            sidebar.style.opacity = opacity;
+        });
+
+        // About me body fade in/out on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        if (aboutMeBody) {
+            observer.observe(aboutMeBody);
+        }
+
+        // Initialize navigation on page load
+        updateActiveNav();
+    </script>
+</body>
+</html>

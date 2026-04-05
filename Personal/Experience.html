@@ -420,7 +420,7 @@
             </div>
         </aside>
 
-        <main class="main-content">
+        <main class="main-content main-content-transition">
             <text>
                 hello
             </text>
@@ -460,7 +460,6 @@
 
         function fadeInPage() {
             const mainContent = document.querySelector('.main-content');
-            mainContent.classList.add('main-content-transition');
             setTimeout(() => {
                 mainContent.classList.add('active');
             }, 50);

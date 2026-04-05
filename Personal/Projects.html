@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Reset and Base Styles */
+        /* =========================================
+           1. CSS Reset & Base Styles
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -16,20 +18,44 @@
         }
 
         body {
-            background-color: #121212; /* Dark background */
-            color: #dcdcdc; /* Light grey text */
+            background-color: #121212;
+            color: #dcdcdc;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             min-height: 100vh;
         }
 
-        /* Container Layout */
+        /* =========================================
+           2. Layout Structure
+           ========================================= */
         .container {
             width: 100%;
             min-height: 100vh;
         }
 
-        /* --- Left Sidebar --- */
+        .main-content {
+            margin-left: 280px;
+            padding: 60px 80px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Page Transition Styles */
+        .main-content-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .main-content-transition.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           3. Sidebar Navigation
+           ========================================= */
         .sidebar {
             position: fixed;
             width: 200px;
@@ -41,7 +67,6 @@
             transition: opacity 0.1s ease-out; 
         }
 
-        /* Navigation */
         .nav-menu {
             list-style: none;
             margin-bottom: 40px;
@@ -64,15 +89,12 @@
             position: relative;
         }
 
-        .nav-menu a:hover {
-            color: #fff;
-        }
-
+        .nav-menu a:hover,
         .nav-menu .active a {
             color: #fff;
         }
 
-        /* Individual Sliding Underline for Each Nav Item */
+        /* Sliding Underline */
         .nav-menu li::after {
             content: '';
             position: absolute;
@@ -90,19 +112,6 @@
             transform: scaleX(1);
         }
 
-        /* Page Transition Styles */
-        .page-transition {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .page-transition.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Social Icons */
         .social-icons {
             display: flex;
             flex-direction: column;
@@ -121,16 +130,9 @@
             color: #fff;
         }
 
-        /* --- Main Content Area --- */
-        .main-content {
-            margin-left: 280px;
-            padding: 60px 80px 60px 40px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        /* Hero Section (Name) */
+        /* =========================================
+           4. Component Styles (Hero, About, etc.)
+           ========================================= */
         .hero {
             margin-top: 40px;
             margin-bottom: 60px; 
@@ -140,9 +142,7 @@
             gap: 60px; 
         }
 
-        .hero-text {
-            flex: 1;
-        }
+        .hero-text { flex: 1; }
 
         .hero h1 {
             font-size: 80px;
@@ -161,7 +161,6 @@
             margin-bottom: 20%;
         }
 
-        /* Bottom Content Area (Contact & About) */
         .bottom-content {
             display: flex;
             justify-content: space-between;
@@ -175,7 +174,6 @@
             line-height: 1.6;
         }
 
-        /* Image Section */
         .image {
             width: 500px;
             flex-shrink: 0;
@@ -185,10 +183,7 @@
             transition: transform 0.3s ease;
         }
 
-        .image:hover {
-            transform: translateY(-5px);
-        }
-
+        .image:hover { transform: translateY(-5px); }
         .image img {
             width: 100%;
             height: auto;
@@ -200,7 +195,6 @@
             margin-top: 0px;
         }
 
-        /* About Me Body Section */
         .about-me-body {
             opacity: 0;
             transition: opacity 0.8s ease-in-out;
@@ -221,11 +215,131 @@
             transition: color 0.3s;
         }
 
-        .about-me-body.visible {
-            opacity: 1;
+        .about-me-body.visible { opacity: 1; }
+
+        /* =========================================
+           5. Card Stack (Swipe) Component
+           ========================================= */
+        .card-stack-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center; 
+            justify-content: center;
+            gap: 40px;
+            margin: 2rem auto;
+            width: 100%;
+            max-width: 1200px; 
         }
 
-        /* --- CSS Toggle Switch --- */
+        .card-stack {
+            display: grid;
+            grid-template-areas: "stack";
+            width: 100%;
+            max-width: 50%; 
+            min-height: 400px; 
+            flex-shrink: 0;
+        }
+
+        .card {
+            grid-area: stack;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            background-color: #222; 
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            cursor: grab;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            will-change: transform;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .card-img-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-img-btn img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* FIXED: Messy stack look dynamically applies based on the number of cards you have */
+        .card:nth-last-child(1) { transform: rotate(0deg); z-index: 3; }
+        .card:nth-last-child(2) { transform: rotate(2deg) translate(5px, -5px); z-index: 2; }
+        .card:nth-last-child(3) { transform: rotate(-3deg) translate(-5px, 5px); z-index: 1; }
+
+        /* Animation classes toggled via JS */
+        .card.swiped-right {
+            transform: translate(0, 0) rotate(0deg) !important;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0 !important;
+        }
+
+        .card.swiped-left {
+            transform: translate(0, 0) rotate(0deg) !important;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0 !important;
+        }
+
+      
+        /* FIXED: Added z-index and position: relative to pull controls forward */
+        .arrow-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            z-index: 10; 
+            position: relative;
+        }
+
+        .arrow-btn {
+            background: none;
+            border: 1px solid #555;
+            color: #dcdcdc;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-btn:hover {
+            background-color: #333;
+            border-color: #777;
+            transform: scale(1.1);
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* =========================================
+           6. Toggle Elements
+           ========================================= */
         .switch {
             position: relative;
             display: inline-block;
@@ -235,21 +349,13 @@
             margin-bottom: 20px;
         }
 
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+        .switch input { opacity: 0; width: 0; height: 0; }
 
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background-color: #333; 
-            -webkit-transition: .4s;
             transition: .4s;
             border: 1px solid #555; 
         }
@@ -257,39 +363,22 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 24px;
-            width: 24px;
-            left: 4px;
-            bottom: 4px;
+            height: 24px; width: 24px;
+            left: 4px; bottom: 4px;
             background-color: #dcdcdc;
-            -webkit-transition: .4s;
             transition: .4s;
         }
 
-        input:checked + .slider {
-            background-color: #e0e1e4; 
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #e0e1e4;
-        }
-
+        input:checked + .slider { background-color: #e0e1e4; }
+        input:focus + .slider { box-shadow: 0 0 1px #e0e1e4; }
         input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
             transform: translateX(26px);
             background-color: #121212; 
         }
 
-        .slider.round {
-            border-radius: 34px;
-        }
+        .slider.round { border-radius: 34px; }
+        .slider.round:before { border-radius: 50%; }
 
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        /* --- Toggle Content Container (Side-by-Side Flexbox) --- */
         .toggle-content {
             transition: background-color 0.5s ease, color 0.5s ease;
             padding: 40px;
@@ -297,40 +386,27 @@
             display: flex;
             align-items: center; 
             justify-content: center;
-            gap: 60px; /* Increased gap for better spacing between image and text */
+            gap: 60px;
         }
 
-        /* State 1: Normal (Dark) */
-        .toggle-content.state-1 {
-            background-color: #121212;
-            color: #dcdcdc;
-        }
+        .toggle-content.state-1 { background-color: #121212; color: #dcdcdc; }
+        .toggle-content.state-2 { background-color: #e0e1e4; color: #121212; }
 
-        /* State 2: White Background */
-        .toggle-content.state-2 {
-            background-color: #e0e1e4;
-            color: #121212;
-        }
-
-        /* FIXED: Profile Picture Sizing */
         .profile-picture {
             flex-shrink: 0;
-            width: 300px; /* Base size of the image container */
-            height: 300px; /* Force perfect square */
-            border-radius: 50%; /* Make container round */
-            overflow: hidden; /* Ensure image stays inside the circle */
+            width: 300px; 
+            height: 300px; 
+            border-radius: 50%;
+            overflow: hidden; 
             transition: transform 0.3s ease;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .profile-picture:hover {
-            transform: translateY(-5px);
-        }
-
+        .profile-picture:hover { transform: translateY(-5px); }
         .profile-picture img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures image fills the circle perfectly without stretching */
+            object-fit: cover;
             display: block;
         }
 
@@ -338,16 +414,18 @@
             display: flex;
             flex-direction: column;
             gap: 20px; 
-            max-width: 500px; /* Prevents text from stretching too far wide */
+            max-width: 500px;
         }
 
         .toggle-text p {
-            font-size: 22px; /* Slightly reduced from 25px so it balances nicely with the 300px image */
+            font-size: 22px; 
             line-height: 1.6;
             margin: 0; 
         }
 
-        /* --- Mobile Responsiveness --- */
+        /* =========================================
+           7. Media Queries
+           ========================================= */
         @media (max-width: 768px) {
             .sidebar {
                 position: relative;
@@ -362,9 +440,7 @@
                 gap: 15px;
                 margin-bottom: 0;
             }
-            .social-icons {
-                flex-direction: row;
-            }
+            .social-icons { flex-direction: row; }
             .main-content {
                 margin-left: 0;
                 padding: 20px;
@@ -374,18 +450,12 @@
                 text-align: center;
                 gap: 30px;
             }
-            .image {
-                width: 100%;
-            }
+            .image { width: 100%; }
             .about-me-body {
                 padding: 20px;
-                height: 70px;
+                height: auto; /* FIXED: Let the div resize naturally */
             }
-            .hero h1, .about-me-body h1 {
-                font-size: 50px;
-            }
-            
-            /* Stack the profile picture and text on mobile */
+            .hero h1, .about-me-body h1 { font-size: 50px; }
             .toggle-content {
                 flex-direction: column;
                 text-align: center;
@@ -393,11 +463,28 @@
                 padding: 20px;
             }
             .profile-picture {
-                width: 200px; /* Scale image down slightly on mobile */
+                width: 200px; 
                 height: 200px;
             }
-            .toggle-text p {
-                font-size: 18px; /* Scale text down on mobile */
+            .toggle-text p { font-size: 18px; }
+            
+            .card-stack-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .card-stack { 
+                max-width: 100%;
+                width: 100%;
+            }
+            .arrow-controls {
+                flex-direction: row;
+                justify-content: center;
+                width: 100%;
+            }
+            .arrow-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
         }
     </style>
@@ -413,65 +500,96 @@
                 </ul>
 
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/sanjkris/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/_san.who_/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/sanjkris/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_san.who_/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
             </div>
         </aside>
 
-        <main class="main-content">
-            <text>
-                hello
-            </text>
+        <main class="main-content main-content-transition">
+
+            <div class="projects-wrapper">
+                <div class="projects-section">
+                    </div>
+            </div>
+            
+            <br>
+
+            <div class="card-stack-container">
+                <div class="card-stack">
+                    <div class="card">
+                        <a class="card-img-btn" href="Content.html">
+                            <img src="Images/3.png" alt="Slide 3">
+                        </a>
+                    </div>
+                    <div class="card">
+                    <a class="card-img-btn" href="Landscape.html">
+                        <img src="Images/2.png" alt="Slide 2">
+                    </a>
+                </div>
+                    <div class="card">
+                        <a class="card-img-btn" href="Motorsports.html">
+                            <img src="Images/1.png" alt="Slide 1">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="arrow-controls">
+                    <button id="swipe-right" class="arrow-btn" title="Swipe Right">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <section class="tech projects">
+                <hr style="border-color: #333; margin-bottom: 20px; margin-top: 40px;">
+                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
+                    
+                </div>
+
+
+            </section>
+            <section class="link-bar">
+                <hr style="border-color: #333; margin-bottom: 20px; margin-top: 40px;">
+                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
+                    <a href="https://www.linkedin.com/in/sanjkris/" target="_blank" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+                    <a href="https://www.instagram.com/_san.who_/" target="_blank" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
+                    <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
+                </div>
+            </section>
         </main>
     </div>
 
-    <div class="projects-wrapper">
-        <div class="projects-section">
-            
-        </div>
-    </div>
-    <br>
-
-   
-    <section class="link-bar">
-            <hr style="border-color: #333; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
-                    <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
-                    <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
-                    <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
-                </div>
-
-    </section>
-
     <script>
+        // DOM Elements - FIXED: All buttons and cards mapped!
         const mainContent = document.querySelector('.main-content');
         const sidebar = document.querySelector('.sidebar');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
+        const aboutMeBody = document.querySelector('.about-me-body');
+        const rightArrow = document.getElementById('swipe-right');
+        const cards = document.querySelectorAll('.card');
 
-        // Page transition functionality
+        /* --- Page Transitions --- */
         function fadeOutPage() {
-            document.body.classList.add('page-transition');
-            document.body.style.opacity = '0';
-            document.body.style.transform = 'translateY(20px)';
+            mainContent.classList.add('main-content-transition');
+            mainContent.classList.remove('active');
         }
 
         function fadeInPage() {
-            document.body.classList.add('page-transition');
             setTimeout(() => {
-                document.body.classList.add('active');
+                mainContent.classList.add('active');
             }, 50);
         }
 
-        // Navigation click handler with transitions
-        navLinks.forEach(link => {
+        // Navigation click handler
+       navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 if (!this.classList.contains('active')) {
                     e.preventDefault();
                     fadeOutPage();
-                    
                     setTimeout(() => {
                         window.location.href = this.href;
                     }, 300);
@@ -479,14 +597,12 @@
             });
         });
 
-        // Initialize page fade-in on load
-        window.addEventListener('load', function() {
-            fadeInPage();
-        });
+        // Initialize fade-in
+        window.addEventListener('load', fadeInPage);
 
-        // Update active navigation state and sliding underline
+        /* --- Navigation State --- */
         function updateActiveNav() {
-            const currentPath = window.location.pathname.split('/').pop();
+            const currentPath = window.location.pathname.split('/').pop() || 'Projects.html'; 
             const navItems = document.querySelectorAll('.nav-menu li');
             
             navItems.forEach(item => {
@@ -499,41 +615,78 @@
                 }
             });
         }
+        updateActiveNav();
 
-        // Sidebar scroll fade effect
+        /* --- Scroll Effects --- */
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             let fadeDistance = mainContent.offsetHeight - window.innerHeight;
-            
-            if (fadeDistance <= 0) {
-                fadeDistance = 500; 
-            }
+            if (fadeDistance <= 0) fadeDistance = 500; 
 
             const opacity = Math.max(0, 1 - (scrollTop / fadeDistance));
             sidebar.style.opacity = opacity;
         });
 
-        // About me body fade in/out on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, observerOptions);
-
+        // Intersection Observer for About Me section
         if (aboutMeBody) {
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, observerOptions);
+            
             observer.observe(aboutMeBody);
         }
 
-        // Initialize navigation on page load
-        updateActiveNav();
+        /* --- Card Swipe Logic --- */
+        function swipeCard() {
+            const cardStack = document.querySelector('.card-stack');
+            const allCards = cardStack.querySelectorAll('.card');
+            
+            if (allCards.length === 0) return;
+            
+            const topCard = allCards[allCards.length - 1]; // Get the last (top) card
+            
+            // Animate fade out
+            topCard.style.opacity = '0';
+            topCard.style.pointerEvents = 'none';
+            
+            // After animation, move to back
+            setTimeout(() => {
+                // Remove all inline styles
+                topCard.style.opacity = '';
+                topCard.style.pointerEvents = '';
+                topCard.style.transform = '';
+                topCard.style.transition = '';
+                
+                // Move to front of DOM (will be last in nth-last-child ordering)
+                cardStack.insertBefore(topCard, allCards[0]);
+                
+                // Force reflow to apply CSS
+                void topCard.offsetWidth;
+            }, 400);
+        }
+
+        // Add click listeners to card buttons to navigate to href
+        const cardImgBtns = document.querySelectorAll('.card-img-btn');
+        cardImgBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
+
+        if (rightArrow) {
+            rightArrow.addEventListener('click', swipeCard);
+        }
+
     </script>
 </body>
 </html>
