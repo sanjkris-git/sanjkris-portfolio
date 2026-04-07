@@ -144,6 +144,59 @@
 
         .hero-text { flex: 1; }
 
+        .section-title {
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            margin-bottom: 16px;
+        }
+
+        .section-title h2 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        .github-projects {
+            display: flex;
+            gap: 32px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .github-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            flex: 1 1 45%;
+            min-width: 320px;
+            max-width: calc(50% - 16px);
+            width: auto;
+        }
+
+        .github-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            display: block;
+            object-fit: contain;
+        }
+
+        .github-card a.project-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .github-card a.project-link:hover {
+            color: #fff;
+        }
+
         .hero h1 {
             font-size: 80px;
             font-weight: 100;
@@ -497,10 +550,13 @@
                     <li><a href="Home.html">HOME</a></li>
                     <li><a href="Experience.html">EXPERIENCE</a></li>
                     <li class="active"><a href="Projects.html">PROJECTS</a></li>
+                    <br>
+                    <li><a href="Sanjay-Krishnan-Resume.pdf" style="font-size: 18px;" >RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/sanjkris/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/sanjkris-git"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.instagram.com/_san.who_/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
@@ -511,7 +567,7 @@
 
             <div class="projects-wrapper">
                 <div class="projects-section">
-                    </div>
+                </div>
             </div>
             
             <br>
@@ -542,23 +598,40 @@
                 </div>
             </div>
 
-
             <section class="tech projects">
-                <hr style="border-color: #333; margin-bottom: 20px; margin-top: 40px;">
-                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
-                    
-                </div>
+                <hr style="border-color: #333; margin-top: 40px;">
+                
+                <section class="section-title">
+                    <h2 style="font-weight: 200;">GitHub Projects:</h2>
+                    <br>
+                </section>
 
+                <section class="github-projects">
+                    <div class="github-card">
+                        <a class="project-link" href="https://github.com/sanjkris-git/PMEC-Motorsports-Website" target="_blank">PMEC Motorsports Website</a>
+                        <a href="https://github.com/sanjkris-git/PMEC-Motorsports-Website" target="_blank">
+                            <img src="Images/PMEC_Web.png" alt="PMEC Motorsports Website">
+                        </a>
+                    </div>
 
+                    <div class="github-card">
+                        <a class="project-link" href="https://github.com/sanjkris-git/Engr133-Project-Final" target="_blank">Engr133 Final Project</a>
+                        <a href="https://github.com/sanjkris-git/Engr133-Project-Final" target="_blank">
+                            <img src="Images/133_Final.png" alt="Engr133 Final Project">
+                        </a>
+                    </div>
+                </section>
             </section>
-            <section class="link-bar">
-                <hr style="border-color: #333; margin-bottom: 20px; margin-top: 40px;">
+            <br>
+             <section class="link-bar">
+            <hr style="border-color: #333; margin-bottom: 20px;">
                 <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
-                    <a href="https://www.linkedin.com/in/sanjkris/" target="_blank" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
-                    <a href="https://www.instagram.com/_san.who_/" target="_blank" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
+                    <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+                    <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
                     <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
                 </div>
-            </section>
+
+    </section>
         </main>
     </div>
 

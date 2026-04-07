@@ -93,7 +93,7 @@
         /* Page Transition Styles - Only for main content */
         .main-content-transition {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(100px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
@@ -198,6 +198,108 @@
 
         .projects-wrapper {
             margin-top: 0px;
+        }
+
+        .gallery-header {
+            max-width: 780px;
+            margin-bottom: 0px;
+        }
+
+        .gallery-header .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+            margin-bottom: 0px;
+            font-size: 14px;
+        }
+
+        .gallery-header h1 {
+            font-size: 60px;
+            line-height: 1.05;
+            color: #fff;
+            margin-bottom: 0px;
+            font-weight: 100;
+        }
+
+        .gallery-header p {
+            font-size: 18px;
+            color: #bbb;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            border: 0px solid rgba(255, 255, 255, 1);
+            margin-top: 24px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel.visible {
+            opacity: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.55s ease;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: rgba(255, 255, 255, 0);
+            color: #f5f5f5;
+            width: 56px;
+            height: 56px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease;
+        }
+
+        .carousel-button:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .carousel-button.prev {
+            left: 18px;
+        }
+
+        .carousel-button.next {
+            right: 18px;
+        }
+
+
+        @media (max-width: 768px) {
+            .carousel-slide {
+                height: 420px;
+            }
         }
 
         /* About Me Body Section */
@@ -399,7 +501,12 @@
             .toggle-text p {
                 font-size: 18px; /* Scale text down on mobile */
             }
+
+            .carousel-slide {
+                height: 400px;
+            }
         }
+        
     </style>
 </head>
 <body>
@@ -408,12 +515,15 @@
             <div>
                 <ul class="nav-menu">
                     <li><a href="Home.html">HOME</a></li>
-                    <li class="active"><a href="Experience.html">EXPERIENCE</a></li>
-                    <li><a href="Projects.html">PROJECTS</a></li>
+                    <li><a href="Experience.html">EXPERIENCE</a></li>
+                    <li class="active"><a href="Projects.html">PROJECTS</a></li>
+                    <br>
+                    <li><a href="Sanjay-Krishnan-Resume.pdf" style="font-size: 18px;">RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/sanjkris/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/sanjkris-git"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.instagram.com/_san.who_/"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
@@ -421,17 +531,107 @@
         </aside>
 
         <main class="main-content main-content-transition">
-            
-            <text>
-                hello
-            </text>
-        </main>
-    </div>
+            <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Cherry Blossoms Collection</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/Indianapolis.png" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0380.jpg" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0378.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0379.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0381.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0382.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0383.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0384.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0385.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0386.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0387.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0389.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0390.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0392.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0395.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0397.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0398.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0402.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0404.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0406.JPG" alt="Cherry Blossoms"></div>
+                    <div class="carousel-slide"><img src="Photography%20Tabs/Cherry%20Blossoms/IMG_0407.JPG" alt="Cherry Blossoms"></div>
+                </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+                
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
+             <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Snowfall In Indianapolis</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/Snowfall.png" alt="Snowfall In Indianapolis"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Snowfall In Indianapolis/IMG_8436.JPG" alt="Snowfall In Indianapolis"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Snowfall In Indianapolis/IMG_8467.PNG" alt="Snowfall In Indianapolis"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Snowfall In Indianapolis/IMG_8469.PNG" alt="Snowfall In Indianapolis"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Snowfall In Indianapolis/IMG_8470.PNG" alt="Snowfall In Indianapolis"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Snowfall In Indianapolis/Untitled design - 2.png" alt="Snowfall In Indianapolis"></div>
+                    </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+               
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
 
-    <div class="projects-wrapper">
-        <div class="projects-section">
-            
-        </div>
+             <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Los Gatos, CA</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/Los Gatos.png" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7560.JPG" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7569.JPG" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7552.JPG" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7562.JPG" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7561.JPG" alt="Los Gatos"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7571.JPG" alt="Los Gatos"></div>
+                     <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7573.JPG" alt="Los Gatos"></div>
+                      <div class="carousel-slide"><img src="Photography Tabs/Los Gatos/IMG_7574-EDIT.jpg" alt="Los Gatos"></div>
+                    </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+               
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">San Jose, CA</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/San Jose.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6208.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6826.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_9070.JPG" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6834.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6832.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6213.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6470.JPG" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_6204.png" alt="San Jose"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/San Jose/IMG_5808.jpg" alt="San Jose"></div>
+                    </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+               
+            </section>
+        </main>
+    
     </div>
     <br>
 
@@ -440,6 +640,7 @@
             <hr style="border-color: #333; margin-bottom: 20px;">
                 <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
                     <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+                     <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
                     <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
                     <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
                 </div>
@@ -514,6 +715,8 @@
             sidebar.style.opacity = opacity;
         });
 
+        const aboutMeBody = document.querySelector('.about-me-body');
+
         // About me body fade in/out on scroll
         const observerOptions = {
             threshold: 0.1
@@ -535,6 +738,73 @@
 
         // Initialize navigation on page load
         updateActiveNav();
+
+
+        // ==========================================
+        // FIX APPLIED HERE: Re-written to loop through 
+        // ALL carousels independently.
+        // ==========================================
+        const allCarousels = document.querySelectorAll('.carousel');
+
+        allCarousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+            const prevButton = carousel.querySelector('.carousel-button.prev');
+            const nextButton = carousel.querySelector('.carousel-button.next');
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                if (!track) return;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            function showPrevious() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+
+            if (track && slides.length > 0) {
+                prevButton?.addEventListener('click', showPrevious);
+                nextButton?.addEventListener('click', showNext);
+            }
+        });
+
+        // Global keydown event to control both/all carousels (optional, but handy)
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                document.querySelectorAll('.carousel-button.prev').forEach(btn => btn.click());
+            }
+            if (event.key === 'ArrowRight') {
+                document.querySelectorAll('.carousel-button.next').forEach(btn => btn.click());
+            }
+        });
+
+        // Carousel fade-in on scroll
+        const carouselElements = document.querySelectorAll('.carousel');
+        const carouselObserverOptions = {
+            threshold: 0.1
+        };
+
+        const carouselFadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, carouselObserverOptions);
+
+        carouselElements.forEach(carousel => {
+            carouselFadeObserver.observe(carousel);
+        });
+
     </script>
 </body>
 </html>
