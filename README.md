@@ -2,7 +2,7 @@
 
 Responsive personal portfolio website built to showcase my academic journey, professional experience in Motorsports Engineering, and personal interests.
 
-Link to Website: [Insert live link here, e.g., https://sanjaykrishnan-portfolio.com/]
+Link to Website: sanjkris.com
 
 How It's Made:
 Tech used: HTML5, CSS3, Vanilla JavaScript, Google Fonts (Montserrat), FontAwesome
