@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjay Krishnan - TheSimpleScout</title>
+    <title>Sanjay Krishnan - Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Reset and Base Styles */
+        /* =========================================
+           1. CSS Reset & Base Styles
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -23,13 +25,37 @@
             min-height: 100vh;
         }
 
-        /* Container Layout */
+        /* =========================================
+           2. Layout Structure
+           ========================================= */
         .container {
             width: 100%;
             min-height: 100vh;
         }
 
-        /* --- Left Sidebar --- */
+        .main-content {
+            margin-left: 280px;
+            padding: 60px 80px 60px 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Page Transition Styles */
+        .main-content-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .main-content-transition.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           3. Sidebar Navigation
+           ========================================= */
         .sidebar {
             position: fixed;
             width: 200px;
@@ -63,14 +89,12 @@
             position: relative;
         }
 
-        .nav-menu a:hover {
-            color: #fff;
-        }
-
+        .nav-menu a:hover,
         .nav-menu .active a {
             color: #fff;
         }
 
+        /* Sliding Underline */
         .nav-menu li::after {
             content: '';
             position: absolute;
@@ -88,19 +112,6 @@
             transform: scaleX(1);
         }
 
-        /* Page Transition Styles */
-        .main-content-transition {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .main-content-transition.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Social Icons */
         .social-icons {
             display: flex;
             flex-direction: column;
@@ -119,125 +130,94 @@
             color: #fff;
         }
 
-        /* --- Main Content Area --- */
-        .main-content {
-            margin-left: 280px;
-            padding: 60px 80px 60px 40px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: #aaa;
-            text-decoration: none;
-            font-size: 18px;
-            margin-bottom: 40px;
-            transition: color 0.3s ease;
-            width: fit-content;
-        }
-
-        .back-button:hover {
-            color: #fff;
-        }
-
         /* =========================================
-           YouTube Showcase Section
+           4. Resume Specific Styles
            ========================================= */
-        .youtube-showcase {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 40px;
-            margin: 0 auto 60px auto;
-            max-width: 1200px;
-            gap: 40px;
-            transition: border-color 0.3s ease, transform 0.3s ease;
+        .resume-header {
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        .youtube-showcase:hover {
-            border-color: #555;
-            transform: translateY(-5px);
+        .resume-header h1 {
+            font-size: 80px;
+            font-weight: 100;
+            line-height: 1.1;
+            letter-spacing: 2px;
+            color: #fff;
         }
 
-        .yt-text {
-            flex: 1;
+        .resume-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-        }
-
-        .yt-text h2 {
-            font-size: 36px;
-            color: #fff;
-            font-weight: 300;
-        }
-
-        .yt-stats {
-            display: flex;
-            gap: 15px;
-            color: #aaa;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            flex-wrap: wrap;
-        }
-
-        .yt-stats span {
-            background: #222;
-            padding: 6px 12px;
-            border-radius: 4px;
-            border: 1px solid #444;
-            display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 40px;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .yt-text p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #dcdcdc;
-        }
-
-        .yt-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin-top: 10px;
-            background-color: #fff;
-            color: #121212;
-            text-decoration: none;
-            font-weight: 400;
-            border-radius: 6px;
-            width: fit-content;
-            transition: background-color 0.3s ease;
-        }
-
-        .yt-btn:hover {
-            background-color: #dcdcdc;
-        }
-
-        .yt-video {
-            flex-shrink: 0;
-            width: 500px;
+        .resume-image-wrapper {
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #333;
         }
 
-        .yt-video iframe {
+        .resume-image-wrapper img {
             width: 100%;
-            aspect-ratio: 16/9;
-            border: none;
+            height: auto;
             display: block;
         }
 
-        /* --- Mobile Responsiveness --- */
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: 220px;
+        }
+
+        .btn-pdf {
+            background-color: #fff;
+            color: #121212;
+            border: 1px solid #fff;
+        }
+
+        .btn-pdf:hover {
+            background-color: #dcdcdc;
+            transform: translateY(-3px);
+        }
+
+        .btn-png {
+            background-color: transparent;
+            color: #dcdcdc;
+            border: 1px solid #555;
+        }
+
+        .btn-png:hover {
+            border-color: #fff;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+           5. Media Queries
+           ========================================= */
         @media (max-width: 768px) {
             .sidebar {
                 position: relative;
@@ -252,20 +232,21 @@
                 gap: 15px;
                 margin-bottom: 0;
             }
-            .social-icons {
-                flex-direction: row;
-            }
+            .social-icons { flex-direction: row; }
             .main-content {
                 margin-left: 0;
                 padding: 20px;
             }
-            
-            .youtube-showcase {
-                flex-direction: column;
-                padding: 20px;
+            .resume-header h1 {
+                font-size: 50px;
             }
-            .yt-video {
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
                 width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -277,10 +258,10 @@
                 <ul class="nav-menu">
                     <li><a href="index.html">HOME</a></li>
                     <li><a href="Experience.html">EXPERIENCE</a></li>
-                    <li class="active"><a href="Projects.html">PROJECTS</a></li>
+                    <li><a href="Projects.html">MEDIA</a></li>
                     <li><a href="Code.html">CODE</a></li>
                     <br>
-                   <li><a href="Resume.html" style="font-size: 18px;">RESUME</a></li>
+                    <li class="active"><a href="Resume.html" style="font-size: 18px;">RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
@@ -294,33 +275,22 @@
 
         <main class="main-content main-content-transition">
             
-            <a href="Projects.html" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Projects
-            </a>
-
-            <div class="youtube-showcase">
-                <div class="yt-text">
-                    <h2>TheSimpleScout</h2>
-                    <div class="yt-stats">
-                        <span><i class="fab fa-youtube" style="color: #ff0000;"></i> 10K+ Subs</span>
-                        <span><i class="fas fa-eye"></i> 4.5M+ Views</span>
-                    </div>
-                    <p>Showcasing my custom LEGO builds, dioramas, and design concepts. Watch as I bring imaginative worlds to life brick by brick.</p>
-                    <a href="https://www.youtube.com/@TheSimpleScout" target="_blank" class="yt-btn">Visit Channel</a>
-                </div>
-                <div class="yt-video">
-                   <iframe width="560" height="315" src="https://www.youtube.com/embed/FPuMQZBEzjA?si=TNfBgT3jJha4vxfC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
+            <div class="resume-header">
+                <h1>Resume</h1>
             </div>
 
-            <div class="youtube-showcase">
-                <div class="yt-text">
-                    <h2>EPICS 460 Motorsports Outreach - Model Wind Tunnel with Arduino</h2>
-                    <div class="yt-stats">
-                        <span> Arduino</span>
-                        <span>Purdue</span>
-                    </div>
-                    <p>Electrical Design Lead responsible for implementing an Arduino system to determine downforce in a model wind tunnel to be used by Purdue Motorsports Engineering Faculty for campus visits</p>
+            <div class="resume-container">
+                <div class="resume-image-wrapper">
+                    <img src="Sanjay Krishnan Resume.png" alt="Sanjay Krishnan Resume">
+                </div>
+
+                <div class="download-buttons">
+                    <a href="Sanjay Krishnan Resume.pdf" download class="btn btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Download PDF
+                    </a>
+                    <a href="Sanjay Krishnan Resume.png" download class="btn btn-png">
+                        <i class="fas fa-image"></i> Download PNG
+                    </a>
                 </div>
             </div>
 
@@ -328,7 +298,7 @@
     </div>
 
     <section class="link-bar">
-        <hr style="border-color: #333; margin-bottom: 20px;">
+        <hr style="border-color: #333; margin-bottom: 20px; margin-top: 40px;">
         <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
             <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
             <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
@@ -340,10 +310,9 @@
     <script>
         const mainContent = document.querySelector('.main-content');
         const sidebar = document.querySelector('.sidebar');
-        const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
-        // Page transition functionality
+        /* --- Page Transitions --- */
         function fadeOutPage() {
             mainContent.classList.add('main-content-transition');
             mainContent.classList.remove('active');
@@ -355,14 +324,15 @@
             }, 50);
         }
 
-        // Navigation click handler with transitions
+        // Navigation click handler
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-                if (this.getAttribute('target') === '_blank') return;
-                if (!this.classList.contains('active')) {
+                // Ignore links opening in a new tab or links triggering a download
+                if (this.getAttribute('target') === '_blank' || this.hasAttribute('download')) return;
+                
+                if (!this.parentElement.classList.contains('active')) {
                     e.preventDefault();
                     fadeOutPage();
-                    
                     setTimeout(() => {
                         window.location.href = this.href;
                     }, 300);
@@ -370,34 +340,18 @@
             });
         });
 
-        // Initialize page fade-in on load
-        window.addEventListener('load', function() {
-            fadeInPage();
-        });
+        // Initialize fade-in
+        window.addEventListener('load', fadeInPage);
 
-        // Update active navigation state (Force 'MEDIA' active since it's a sub-page)
-        function updateActiveNav() {
-            const navItems = document.querySelectorAll('.nav-menu li');
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                if (link && link.getAttribute('href') === 'Projects.html') {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        // Sidebar scroll fade effect
+        /* --- Scroll Effects --- */
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             let fadeDistance = mainContent.offsetHeight - window.innerHeight;
             if (fadeDistance <= 0) fadeDistance = 500; 
+
             const opacity = Math.max(0, 1 - (scrollTop / fadeDistance));
             sidebar.style.opacity = opacity;
         });
-
-        updateActiveNav();
     </script>
 </body>
 </html>
