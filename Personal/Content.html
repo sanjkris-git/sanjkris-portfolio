@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjay Krishnan</title>
+    <title>Sanjay Krishnan - TheSimpleScout</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -16,8 +16,8 @@
         }
 
         body {
-            background-color: #121212; /* Dark background */
-            color: #dcdcdc; /* Light grey text */
+            background-color: #121212;
+            color: #dcdcdc;
             font-family: 'Montserrat', sans-serif;
             font-weight: 300;
             min-height: 100vh;
@@ -41,7 +41,6 @@
             transition: opacity 0.1s ease-out; 
         }
 
-        /* Navigation */
         .nav-menu {
             list-style: none;
             margin-bottom: 40px;
@@ -72,7 +71,6 @@
             color: #fff;
         }
 
-        /* Individual Sliding Underline for Each Nav Item */
         .nav-menu li::after {
             content: '';
             position: absolute;
@@ -90,7 +88,7 @@
             transform: scaleX(1);
         }
 
-        /* Page Transition Styles - Only for main content */
+        /* Page Transition Styles */
         .main-content-transition {
             opacity: 0;
             transform: translateY(20px);
@@ -130,221 +128,113 @@
             position: relative;
         }
 
-        /* Hero Section (Name) */
-        .hero {
-            margin-top: 40px;
-            margin-bottom: 60px; 
-            display: flex;
-            justify-content: space-between;
+        .back-button {
+            display: inline-flex;
             align-items: center;
-            gap: 60px; 
+            gap: 10px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+            width: fit-content;
         }
 
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero h1 {
-            font-size: 80px;
-            font-weight: 100;
-            line-height: 1.1;
-            letter-spacing: 2px;
+        .back-button:hover {
             color: #fff;
-            margin-bottom: 15px;
         }
 
-        .hero h2 {
-            font-size: 14px;
-            font-weight: 300;
-            color: #aaa;
-            letter-spacing: 0.5px;
-            margin-bottom: 20%;
-        }
-
-        /* Bottom Content Area (Contact & About) */
-        .bottom-content {
+        /* =========================================
+           YouTube Showcase Section
+           ========================================= */
+        .youtube-showcase {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: flex-end;
-            padding-bottom: 20px;
-        }
-
-        .contact-info {
-            font-size: 20px;
-            color: #aaa;
-            line-height: 1.6;
-        }
-
-        /* Image Section */
-        .image {
-            width: 500px;
-            flex-shrink: 0;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            padding: 40px;
+            margin: 0 auto 60px auto;
+            max-width: 1200px;
+            gap: 40px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
-        .image:hover {
+        .youtube-showcase:hover {
+            border-color: #555;
             transform: translateY(-5px);
         }
 
-        .image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .projects-wrapper {
-            margin-top: 0px;
-        }
-
-        /* About Me Body Section */
-        .about-me-body {
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            padding: 60px 80px 60px 40px;
+        .yt-text {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .about-me-body h1 {
-            text-align: center;
-            font-size: 80px;
-            font-weight: 100;
-            line-height: 1.1;
-            letter-spacing: 2px;
+        .yt-text h2 {
+            font-size: 36px;
             color: #fff;
-            margin-bottom: 15px;
-            transition: color 0.3s;
+            font-weight: 300;
         }
 
-        .about-me-body.visible {
-            opacity: 1;
-        }
-
-        /* --- CSS Toggle Switch --- */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-            align-self: center; 
-            margin-bottom: 20px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #333; 
-            -webkit-transition: .4s;
-            transition: .4s;
-            border: 1px solid #555; 
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 24px;
-            width: 24px;
-            left: 4px;
-            bottom: 4px;
-            background-color: #dcdcdc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked + .slider {
-            background-color: #e0e1e4; 
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #e0e1e4;
-        }
-
-        input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-            background-color: #121212; 
-        }
-
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        /* --- Toggle Content Container (Side-by-Side Flexbox) --- */
-        .toggle-content {
-            transition: background-color 0.5s ease, color 0.5s ease;
-            padding: 40px;
-            border-radius: 8px;
+        .yt-stats {
             display: flex;
-            align-items: center; 
-            justify-content: center;
-            gap: 60px; /* Increased gap for better spacing between image and text */
+            gap: 15px;
+            color: #aaa;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            flex-wrap: wrap;
         }
 
-        /* State 1: Normal (Dark) */
-        .toggle-content.state-1 {
-            background-color: #121212;
+        .yt-stats span {
+            background: #222;
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .yt-text p {
+            font-size: 18px;
+            line-height: 1.6;
             color: #dcdcdc;
         }
 
-        /* State 2: White Background */
-        .toggle-content.state-2 {
-            background-color: #e0e1e4;
+        .yt-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 10px;
+            background-color: #fff;
             color: #121212;
+            text-decoration: none;
+            font-weight: 400;
+            border-radius: 6px;
+            width: fit-content;
+            transition: background-color 0.3s ease;
         }
 
-        /* FIXED: Profile Picture Sizing */
-        .profile-picture {
+        .yt-btn:hover {
+            background-color: #dcdcdc;
+        }
+
+        .yt-video {
             flex-shrink: 0;
-            width: 300px; /* Base size of the image container */
-            height: 300px; /* Force perfect square */
-            border-radius: 50%; /* Make container round */
-            overflow: hidden; /* Ensure image stays inside the circle */
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            width: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
 
-        .profile-picture:hover {
-            transform: translateY(-5px);
-        }
-
-        .profile-picture img {
+        .yt-video iframe {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures image fills the circle perfectly without stretching */
+            aspect-ratio: 16/9;
+            border: none;
             display: block;
-        }
-
-        .toggle-text {
-            display: flex;
-            flex-direction: column;
-            gap: 20px; 
-            max-width: 500px; /* Prevents text from stretching too far wide */
-        }
-
-        .toggle-text p {
-            font-size: 22px; /* Slightly reduced from 25px so it balances nicely with the 300px image */
-            line-height: 1.6;
-            margin: 0; 
         }
 
         /* --- Mobile Responsiveness --- */
@@ -369,35 +259,13 @@
                 margin-left: 0;
                 padding: 20px;
             }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                gap: 30px;
-            }
-            .image {
-                width: 100%;
-            }
-            .about-me-body {
-                padding: 20px;
-                height: 70px;
-            }
-            .hero h1, .about-me-body h1 {
-                font-size: 50px;
-            }
             
-            /* Stack the profile picture and text on mobile */
-            .toggle-content {
+            .youtube-showcase {
                 flex-direction: column;
-                text-align: center;
-                gap: 30px;
                 padding: 20px;
             }
-            .profile-picture {
-                width: 200px; /* Scale image down slightly on mobile */
-                height: 200px;
-            }
-            .toggle-text p {
-                font-size: 18px; /* Scale text down on mobile */
+            .yt-video {
+                width: 100%;
             }
         }
     </style>
@@ -408,44 +276,65 @@
             <div>
                 <ul class="nav-menu">
                     <li><a href="Home.html">HOME</a></li>
-                    <li class="active"><a href="Experience.html">EXPERIENCE</a></li>
-                    <li><a href="Projects.html">PROJECTS</a></li>
+                    <li><a href="Experience.html">EXPERIENCE</a></li>
+                    <li class="active"><a href="Projects.html">MEDIA</a></li>
+                    <li><a href="Code.html">CODE</a></li>
                     <br>
-                    <li><a href="Sanjay-Krishnan-Resume.pdf" style="font-size: 18px;">RESUME</a></li>
+                    <li><a href="Sanjay Krishnan Resume.pdf" target="_blank" style="font-size: 18px; ">RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/sanjkris/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/in/sanjkris/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/sanjkris-git"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.instagram.com/_san.who_/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/_san.who_/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
             </div>
         </aside>
 
         <main class="main-content main-content-transition">
-            <text>
-                hello
-            </text>
+            
+            <a href="Projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Media
+            </a>
+
+            <div class="youtube-showcase">
+                <div class="yt-text">
+                    <h2>TheSimpleScout</h2>
+                    <div class="yt-stats">
+                        <span><i class="fab fa-youtube" style="color: #ff0000;"></i> 10K+ Subs</span>
+                        <span><i class="fas fa-eye"></i> 4.5M+ Views</span>
+                    </div>
+                    <p>Showcasing my custom LEGO builds, dioramas, and design concepts. Watch as I bring imaginative worlds to life brick by brick.</p>
+                    <a href="https://www.youtube.com/@TheSimpleScout" target="_blank" class="yt-btn">Visit Channel</a>
+                </div>
+                <div class="yt-video">
+                   <iframe width="560" height="315" src="https://www.youtube.com/embed/FPuMQZBEzjA?si=TNfBgT3jJha4vxfC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="youtube-showcase">
+                <div class="yt-text">
+                    <h2>EPICS 460 Motorsports Outreach - Model Wind Tunnel with Arduino</h2>
+                    <div class="yt-stats">
+                        <span> Arduino</span>
+                        <span>Purdue</span>
+                    </div>
+                    <p>Electrical Design Lead responsible for implementing an Arduino system to determine downforce in a model wind tunnel to be used by Purdue Motorsports Engineering Faculty for campus visits</p>
+                </div>
+            </div>
+
         </main>
     </div>
 
-    <div class="projects-wrapper">
-        <div class="projects-section">
-            
-        </div>
-    </div>
-    <br>
-
-   
     <section class="link-bar">
-            <hr style="border-color: #333; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
-                    <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
-                    <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
-                    <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
-                </div>
-
+        <hr style="border-color: #333; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
+            <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+            <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
+            <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
+            <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
+        </div>
     </section>
 
     <script>
@@ -454,15 +343,13 @@
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
-        // Page transition functionality - Only affects main content
+        // Page transition functionality
         function fadeOutPage() {
-            const mainContent = document.querySelector('.main-content');
             mainContent.classList.add('main-content-transition');
             mainContent.classList.remove('active');
         }
 
         function fadeInPage() {
-            const mainContent = document.querySelector('.main-content');
             setTimeout(() => {
                 mainContent.classList.add('active');
             }, 50);
@@ -471,6 +358,7 @@
         // Navigation click handler with transitions
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                if (this.getAttribute('target') === '_blank') return;
                 if (!this.classList.contains('active')) {
                     e.preventDefault();
                     fadeOutPage();
@@ -487,15 +375,12 @@
             fadeInPage();
         });
 
-        // Update active navigation state and sliding underline
+        // Update active navigation state (Force 'MEDIA' active since it's a sub-page)
         function updateActiveNav() {
-            const currentPath = window.location.pathname.split('/').pop();
             const navItems = document.querySelectorAll('.nav-menu li');
-            
             navItems.forEach(item => {
                 const link = item.querySelector('a');
-                const linkPath = link.getAttribute('href').split('/').pop();
-                if (linkPath === currentPath) {
+                if (link && link.getAttribute('href') === 'Projects.html') {
                     item.classList.add('active');
                 } else {
                     item.classList.remove('active');
@@ -507,35 +392,11 @@
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
             let fadeDistance = mainContent.offsetHeight - window.innerHeight;
-            
-            if (fadeDistance <= 0) {
-                fadeDistance = 500; 
-            }
-
+            if (fadeDistance <= 0) fadeDistance = 500; 
             const opacity = Math.max(0, 1 - (scrollTop / fadeDistance));
             sidebar.style.opacity = opacity;
         });
 
-        // About me body fade in/out on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                } else {
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, observerOptions);
-
-        if (aboutMeBody) {
-            observer.observe(aboutMeBody);
-        }
-
-        // Initialize navigation on page load
         updateActiveNav();
     </script>
 </body>

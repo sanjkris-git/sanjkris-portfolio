@@ -402,6 +402,22 @@
             gap: 60px; /* Increased gap for better spacing between image and text */
         }
 
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+            width: fit-content;
+        }
+
+        .back-button:hover {
+            color: #fff;
+        }
+
         /* State 1: Normal (Dark) */
         .toggle-content.state-1 {
             background-color: #121212;
@@ -516,9 +532,10 @@
                 <ul class="nav-menu">
                     <li><a href="Home.html">HOME</a></li>
                     <li><a href="Experience.html">EXPERIENCE</a></li>
-                    <li class="active"><a href="Projects.html">PROJECTS</a></li>
+                    <li class="active"><a href="Projects.html">MEDIA</a></li>
+                    <li><a href="Code.html">CODE</a></li>
                     <br>
-                    <li><a href="Sanjay-Krishnan-Resume.pdf" style="font-size: 18px;">RESUME</a></li>
+                    <li><a href="Sanjay Krishnan Resume.pdf" target="_blank" style="font-size: 18px; ">RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
@@ -531,6 +548,9 @@
         </aside>
 
         <main class="main-content main-content-transition">
+             <a href="Projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Media
+            </a>
             <section class="gallery-header">
                 <p class="eyebrow" style="font-size: 40px;">Cherry Blossoms Collection</p>   
             </section>
@@ -640,7 +660,7 @@
             <hr style="border-color: #333; margin-bottom: 20px;">
                 <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
                     <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
-                     <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
+                    <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
                     <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
                     <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
                 </div>

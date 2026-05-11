@@ -289,7 +289,7 @@
             border-radius: 50%;
         }
 
-        /* --- Toggle Content Container (Side-by-Side Flexbox) --- */
+        /* --- Toggle Content Container --- */
         .toggle-content {
             transition: background-color 0.5s ease, color 0.5s ease;
             padding: 40px;
@@ -297,28 +297,25 @@
             display: flex;
             align-items: center; 
             justify-content: center;
-            gap: 60px; /* Increased gap for better spacing between image and text */
+            gap: 60px; 
         }
 
-        /* State 1: Normal (Dark) */
         .toggle-content.state-1 {
             background-color: #121212;
             color: #dcdcdc;
         }
 
-        /* State 2: White Background */
         .toggle-content.state-2 {
             background-color: #e0e1e4;
             color: #121212;
         }
 
-        /* FIXED: Profile Picture Sizing */
         .profile-picture {
             flex-shrink: 0;
-            width: 300px; /* Base size of the image container */
-            height: 300px; /* Force perfect square */
-            border-radius: 50%; /* Make container round */
-            overflow: hidden; /* Ensure image stays inside the circle */
+            width: 300px; 
+            height: 300px; 
+            border-radius: 50%; 
+            overflow: hidden; 
             transition: transform 0.3s ease;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
@@ -330,7 +327,7 @@
         .profile-picture img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures image fills the circle perfectly without stretching */
+            object-fit: cover; 
             display: block;
         }
 
@@ -338,14 +335,88 @@
             display: flex;
             flex-direction: column;
             gap: 20px; 
-            max-width: 500px; /* Prevents text from stretching too far wide */
+            max-width: 500px; 
         }
 
         .toggle-text p {
-            font-size: 22px; /* Slightly reduced from 25px so it balances nicely with the 300px image */
+            font-size: 22px; 
             line-height: 1.6;
             margin: 0; 
         }
+
+        /* =========================================
+           NEW GRID & CARD ANIMATIONS FOR MAIN 
+           ========================================= */
+        .github-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .github-card {
+            background: #181818;
+            border: 1px solid #252525;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            text-decoration: none;
+        }
+
+        .github-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border-color: #444;
+        }
+
+        .project-header {
+            padding: 25px;
+            border-bottom: 1px solid #252525;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .project-link {
+            font-size: 18px;
+            font-weight: 300;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .github-card:hover .project-link {
+            color: #aaa;
+        }
+
+        .project-icon {
+            color: #888;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .github-card:hover .project-icon {
+            color: #fff;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 768px) {
@@ -385,7 +456,6 @@
                 font-size: 50px;
             }
             
-            /* Stack the profile picture and text on mobile */
             .toggle-content {
                 flex-direction: column;
                 text-align: center;
@@ -393,11 +463,14 @@
                 padding: 20px;
             }
             .profile-picture {
-                width: 200px; /* Scale image down slightly on mobile */
+                width: 200px; 
                 height: 200px;
             }
             .toggle-text p {
-                font-size: 18px; /* Scale text down on mobile */
+                font-size: 18px; 
+            }
+            .github-projects {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -410,10 +483,9 @@
                     <li><a href="Home.html">HOME</a></li>
                     <li><a href="Experience.html">EXPERIENCE</a></li>
                     <li><a href="Projects.html">MEDIA</a></li>
-                    <li><a href="Code.html">CODE</a></li>
+                    <li class="active"><a href="Code.html">CODE</a></li>
                     <br>
                     <li><a href="Sanjay Krishnan Resume.pdf" target="_blank" style="font-size: 18px; ">RESUME</a></li>
-                   
                 </ul>
 
                 <div class="social-icons">
@@ -421,80 +493,66 @@
                     <a href="https://github.com/sanjkris-git"><i class="fa-brands fa-github"></i></a>
                     <a href="https://www.instagram.com/_san.who_/"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:sanjkris@gmail.com"><i class="far fa-envelope"></i></a>
-
                 </div>
             </div>
         </aside>
 
         <main class="main-content main-content-transition">
-            <section class="hero">
-                <div class="hero-text">
-                    <h1>Sanjay<br>Krishnan</h1>
-                    <h2>Motorsports Engineering at Purdue University</h2>
-                    <div class="bottom-content" style="margin-bottom: -50px;">
-                        <div class="contact-info">  
-                            Email<br>
-                            <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none;">sanjkris@gmail.com</a><br>
+            <section class="tech projects">
+                <section class="section-title">
+                    <h1 style="font-weight: 200; font-size: 50px; text-align: center">GitHub Projects:</h1>
+                    <br>
+                </section>
+
+                <hr style="border-color: #333; margin-top: 40px;">
+            
+                <section class="github-projects" style="margin: 30px auto; display: block; max-width: 1200px;">
+                    <a href="https://github.com/sanjkris-git/PMEC-Motorsports-Website" target="_blank" class="github-card">
+                        <div class="project-header">
+                            <span class="project-link">PMEC Motorsports Website</span>
+                            <i class="fa-brands fa-github project-icon"></i>
                         </div>
-                    </div>
-                </div>
-                <div class="image">
-                    <img src="Images/Tree_indianapolis.PNG" alt="North Hall Tree">
-                </div>
+                        <div class="img-container">
+                            <img src="Images/PMEC_Web.png" alt="PMEC Motorsports Website">
+                        </div>
+                    </a>
+
+                    <br>
+
+                    <a href="https://github.com/sanjkris-git/Engr133-Project-Final" target="_blank" class="github-card">
+                        <div class="project-header">
+                            <span class="project-link">Engr133 Final Project</span>
+                            <i class="fa-brands fa-github project-icon"></i>
+                        </div>
+                        <div class="img-container">
+                            <img src="Images/133_Final.png" alt="Engr133 Final Project">
+                        </div>
+                    </a>
+                </section>
             </section>
         </main>
     </div>
 
     <div class="projects-wrapper">
         <div class="projects-section">
-            <img src="Images/Kart26.JPG" alt="Kart 26" style="width: 100%; max-width: 100%; margin-top: 40px;">
-            <div class="project" style="margin-top: 60px;">
-                <hr style="border-color: #333; margin-bottom: 20px;">
-            </div>
+            
         </div>
     </div>
     <br>
 
-    <section class="about-me-body">
-        <h1 style="align-self: center;margin-top:5px">ABOUT ME</h1>
-        
-        <label class="switch">
-            <input type="checkbox" id="aboutToggleCheckbox">
-            <span class="slider round"></span>
-        </label>
-        
-        <hr style="border-color: #333;margin-top: 30px;">
-        <br>
-
-        <div class="toggle-content state-1" id="toggleContent">
-            <div class="profile-picture">
-                <img src="Images/about-me-professional.png" alt="Portfolio Icon">
-            </div>
-            <div class="toggle-text">
-                <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>
-                 <p>Hello, I'm Sanjay! I am a Motorsports Engineering student at Purdue University Indianapolis, and I have a strong interest in aerodynamics, vehicle design, and race operations. As the Junior Board Media Officer for Purdue Motorsports Engineering Club, I manage the Media sub-team and handle all social media and race day content.</p>
-                <br>
-                </div>
-        </div>
-    </section>
-    
     <section class="link-bar">
-            <hr style="border-color: #333; margin-bottom: 20px;">
-                <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
-                    <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
-                    <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
-                    <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
-                    <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
-                </div>
-
+        <hr style="border-color: #333; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: center; gap: 40px; padding-bottom: 40px; padding-top:20px">
+            <a href="https://www.linkedin.com/in/sanjkris/" style="color: #aaa; text-decoration: none; font-size: 18px;">LinkedIn</a>
+            <a href="https://github.com/sanjkris-git" style="color: #aaa; text-decoration: none; font-size: 18px;">GitHub</a>
+            <a href="https://www.instagram.com/_san.who_/" style="color: #aaa; text-decoration: none; font-size: 18px;">Instagram</a>
+            <a href="mailto:sanjkris@gmail.com" style="color: #aaa; text-decoration: none; font-size: 18px;">Email</a>
+        </div>
     </section>
 
     <script>
         const mainContent = document.querySelector('.main-content');
         const sidebar = document.querySelector('.sidebar');
-        const aboutMeBody = document.querySelector('.about-me-body');
-        const toggleCheckbox = document.getElementById('aboutToggleCheckbox');
-        const toggleContent = document.getElementById('toggleContent');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-menu a');
 
@@ -547,39 +605,6 @@
             });
         }
 
-        // FIXED: Removed inline styles from the innerHTML strings so CSS can handle sizing
-        toggleCheckbox.addEventListener('change', function(e) {
-            if (!e.target.checked) {
-                // State 1: Switch is OFF (Dark Theme)
-                toggleContent.classList.remove('state-2');
-                toggleContent.classList.add('state-1');
-                toggleContent.innerHTML = `
-                    <div class="profile-picture">
-                        <img src="Images/about-me-professional.png" alt="Portfolio Icon">
-                    </div>
-                    <div class="toggle-text">
-                        <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>
-                        <p>Hello, I'm Sanjay! I am a Motorsports Engineering student at Purdue University Indianapolis, and I have a strong interest in aerodynamics, vehicle design, and race operations. As the Junior Board Media Officer for Purdue Motorsports Engineering Club, I manage the Media sub-team and handle all social media and race day content.</p>
-                        <br>
-                        </div>
-                `;
-            } else {
-                // State 2: Switch is ON (Light Theme)
-                toggleContent.classList.remove('state-1');
-                toggleContent.classList.add('state-2');
-                toggleContent.innerHTML = `
-                    <div class="profile-picture">
-                        <img src="Images/about-me-personal.png" alt="Portfolio Icon">
-                    </div>
-                    <div class="toggle-text">
-                        <h1 style="color: #121212;font-size: 30px; text-align: left;">Personal</h1>
-                        <p>I am Vice President of the Purdue Badminton Club Indianapolis, where I set up open gym sessions for students to train and have fun. On the side, I do photography, including motorsports, landscape, and portraits. When I am not studying, I like to watch movies, play video games, and draw. I am also a huge fan of LEGO!</p>
-                        <br>
-                        </div>
-                `;
-            }
-        });
-
         // Sidebar scroll fade effect
         window.addEventListener('scroll', function() {
             const scrollTop = window.scrollY;
@@ -608,7 +633,8 @@
             });
         }, observerOptions);
 
-        if (aboutMeBody) {
+        // Quick check to make sure aboutMeBody exists on this specific page to avoid script breaking
+        if (typeof aboutMeBody !== 'undefined') {
             observer.observe(aboutMeBody);
         }
 

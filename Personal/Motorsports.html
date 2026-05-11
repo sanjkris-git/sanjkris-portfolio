@@ -93,7 +93,7 @@
         /* Page Transition Styles - Only for main content */
         .main-content-transition {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(100px);
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
@@ -198,6 +198,108 @@
 
         .projects-wrapper {
             margin-top: 0px;
+        }
+
+        .gallery-header {
+            max-width: 780px;
+            margin-bottom: 0px;
+        }
+
+        .gallery-header .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #888;
+            margin-bottom: 0px;
+            font-size: 14px;
+        }
+
+        .gallery-header h1 {
+            font-size: 60px;
+            line-height: 1.05;
+            color: #fff;
+            margin-bottom: 0px;
+            font-weight: 100;
+        }
+
+        .gallery-header p {
+            font-size: 18px;
+            color: #bbb;
+            line-height: 1.8;
+            max-width: 100%;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            background: #ffffff;
+            border: 0px solid rgba(255, 255, 255, 1);
+            margin-top: 24px;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel.visible {
+            opacity: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.55s ease;
+            width: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: rgba(255, 255, 255, 0);
+            color: #f5f5f5;
+            width: 56px;
+            height: 56px;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease;
+        }
+
+        .carousel-button:hover {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .carousel-button.prev {
+            left: 18px;
+        }
+
+        .carousel-button.next {
+            right: 18px;
+        }
+
+
+        @media (max-width: 768px) {
+            .carousel-slide {
+                height: 420px;
+            }
         }
 
         /* About Me Body Section */
@@ -341,6 +443,22 @@
             max-width: 500px; /* Prevents text from stretching too far wide */
         }
 
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 18px;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+            width: fit-content;
+        }
+
+        .back-button:hover {
+            color: #fff;
+        }
+
         .toggle-text p {
             font-size: 22px; /* Slightly reduced from 25px so it balances nicely with the 300px image */
             line-height: 1.6;
@@ -399,7 +517,12 @@
             .toggle-text p {
                 font-size: 18px; /* Scale text down on mobile */
             }
+
+            .carousel-slide {
+                height: 400px;
+            }
         }
+        
     </style>
 </head>
 <body>
@@ -409,9 +532,10 @@
                 <ul class="nav-menu">
                     <li><a href="Home.html">HOME</a></li>
                     <li><a href="Experience.html">EXPERIENCE</a></li>
-                    <li class="active"><a href="Projects.html">PROJECTS</a></li>
+                    <li class="active"><a href="Projects.html">MEDIA</a></li>
+                    <li><a href="Code.html">CODE</a></li>
                     <br>
-                    <li><a href="Sanjay-Krishnan-Resume.pdf" style="font-size: 18px;">RESUME</a></li>
+                    <li><a href="Sanjay Krishnan Resume.pdf" target="_blank" style="font-size: 18px;">RESUME</a></li>
                 </ul>
 
                 <div class="social-icons">
@@ -424,16 +548,115 @@
         </aside>
 
         <main class="main-content main-content-transition">
-            <text>
-                hi
-            </text>
-        </main>
-    </div>
+             <a href="Projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Media
+            </a>
+             <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Sonsio Grand Prix 2026</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/Sonsio GP.png" alt="Sonsio GP"></div>
+                     <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/1.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/2.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/3.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/4.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/5.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/6.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/7.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/8.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/9.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/10.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/11.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/12.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/13.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/14.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/15.png" alt="Sonsio GP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Sonsio GP/16.png" alt="Sonsio GP"></div>    
+                </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+               
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
 
-    <div class="projects-wrapper">
-        <div class="projects-section">
+            <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Purdue Grand Prix 2026</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/PGP2026.png" alt="Cover_PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/1-IMG_9020.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/9-IMG_9130.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/24-IMG_9300.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/29-IMG_9325.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/32-IMG_9370.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/11-IMG_9144.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/5-IMG_9067.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/6-IMG_9089.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 3 (4:8)/8-IMG_9118.jpg" alt="PGP"></div>
+
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/7-IMG_9472.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/12-IMG_9498.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/22-IMG_9598.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/30-IMG_9643.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/35-IMG_9671.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/36-IMG_9688.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/45-IMG_9755.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/48-IMG_9790.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/61-IMG_9856.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 4 (4:11)/66-IMG_9917.jpg" alt="PGP"></div>
+                    
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/9-IMG_0159.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/19-IMG_0305.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/29-IMG_0403.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/34-IMG_0454.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/38-IMG_0505.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Practice 5/42-IMG_0530.jpg" alt="PGP"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/PGP Pictures (limit 10 per session)/Qualifying/45-IMG_0983.jpg" alt="PGP"></div>
+                    
+                </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+                
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
+             <section class="gallery-header">
+                <p class="eyebrow" style="font-size: 40px;">Purdue Halloween 100 2025</p>   
+            </section>
+            <section class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide"><img src="Photography Tabs/Covers/H100.png" alt="Cover_Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h1.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h2.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h3.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h4.png" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h5.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h6.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h7.png" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h8.png" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/h9.JPG" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/hw10.jpg" alt="Halloween 100"></div>
+                    <div class="carousel-slide"><img src="Photography Tabs/Halloween100/hw11.jpg" alt="Halloween 100"></div>
+                    </div>
+                <button class="carousel-button prev" aria-label="Previous">&#10094;</button>
+                <button class="carousel-button next" aria-label="Next">&#10095;</button>
+               
+            </section>
+            <br>
+            <hr>
+            <br>
+            <br>
+
             
-        </div>
+        </main>
+    
     </div>
     <br>
 
@@ -517,6 +740,8 @@
             sidebar.style.opacity = opacity;
         });
 
+        const aboutMeBody = document.querySelector('.about-me-body');
+
         // About me body fade in/out on scroll
         const observerOptions = {
             threshold: 0.1
@@ -538,6 +763,73 @@
 
         // Initialize navigation on page load
         updateActiveNav();
+
+
+        // ==========================================
+        // FIX APPLIED HERE: Re-written to loop through 
+        // ALL carousels independently.
+        // ==========================================
+        const allCarousels = document.querySelectorAll('.carousel');
+
+        allCarousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+            const prevButton = carousel.querySelector('.carousel-button.prev');
+            const nextButton = carousel.querySelector('.carousel-button.next');
+
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                if (!track) return;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            function showPrevious() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+
+            if (track && slides.length > 0) {
+                prevButton?.addEventListener('click', showPrevious);
+                nextButton?.addEventListener('click', showNext);
+            }
+        });
+
+        // Global keydown event to control both/all carousels (optional, but handy)
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                document.querySelectorAll('.carousel-button.prev').forEach(btn => btn.click());
+            }
+            if (event.key === 'ArrowRight') {
+                document.querySelectorAll('.carousel-button.next').forEach(btn => btn.click());
+            }
+        });
+
+        // Carousel fade-in on scroll
+        const carouselElements = document.querySelectorAll('.carousel');
+        const carouselObserverOptions = {
+            threshold: 0.1
+        };
+
+        const carouselFadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, carouselObserverOptions);
+
+        carouselElements.forEach(carousel => {
+            carouselFadeObserver.observe(carousel);
+        });
+
     </script>
 </body>
 </html>
