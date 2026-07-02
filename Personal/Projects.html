@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanjay Krishnan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -540,6 +543,21 @@
                 font-size: 18px;
             }
         }
+            /* Small-phone tightening for the nav row */
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-menu li {
+                font-size: 15px;
+            }
+            .social-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -577,17 +595,17 @@
                 <div class="card-stack">
                     <div class="card">
                         <a class="card-img-btn" href="Content.html">
-                            <img src="Images/3.png" alt="Slide 3">
+                            <img src="Images/3.webp" alt="Slide 3" decoding="async">
                         </a>
                     </div>
                     <div class="card">
                     <a class="card-img-btn" href="Landscape.html">
-                        <img src="Images/2.png" alt="Slide 2">
+                        <img src="Images/2.webp" alt="Slide 2" loading="lazy" decoding="async">
                     </a>
                 </div>
                     <div class="card">
                         <a class="card-img-btn" href="Motorsports.html">
-                            <img src="Images/1.png" alt="Slide 1">
+                            <img src="Images/1.webp" alt="Slide 1" loading="lazy" decoding="async">
                         </a>
                     </div>
                 </div>

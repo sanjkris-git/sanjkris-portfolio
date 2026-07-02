@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanjay Krishnan - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -249,6 +252,21 @@
                 max-width: 300px;
             }
         }
+            /* Small-phone tightening for the nav row */
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-menu li {
+                font-size: 15px;
+            }
+            .social-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -281,11 +299,11 @@
 
             <div class="resume-container">
                 <div class="resume-image-wrapper">
-                    <img src="Sanjay Krishnan Resume.png" alt="Sanjay Krishnan Resume">
+                    <img src="Images/Sanjay_Krishnan_Resume_preview.webp" alt="Sanjay Krishnan Resume" loading="lazy" decoding="async">
                 </div>
 
                 <div class="download-buttons">
-                    <a href="Sanjay Krishnan Resume.pdf" download class="btn btn-pdf">
+                    <a href="Sanjay_Krishnan_Resume.pdf" download class="btn btn-pdf">
                         <i class="fas fa-file-pdf"></i> Download PDF
                     </a>
                     <a href="Sanjay Krishnan Resume.png" download class="btn btn-png">

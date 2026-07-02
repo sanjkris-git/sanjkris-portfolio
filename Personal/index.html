@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanjay Krishnan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -400,6 +403,21 @@
                 font-size: 18px; /* Scale text down on mobile */
             }
         }
+            /* Small-phone tightening for the nav row */
+        @media (max-width: 480px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav-menu li {
+                font-size: 15px;
+            }
+            .social-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -439,7 +457,7 @@
                     </div>
                 </div>
                 <div class="image">
-                    <img src="Images/Tree_indianapolis.PNG" alt="North Hall Tree">
+                    <img src="Images/Tree_indianapolis.webp" alt="North Hall Tree" decoding="async">
                 </div>
             </section>
         </main>
@@ -447,7 +465,7 @@
 
     <div class="projects-wrapper">
         <div class="projects-section">
-            <img src="Images/Kart26.JPG" alt="Kart 26" style="width: 100%; max-width: 100%; margin-top: 40px;">
+            <img src="Images/Kart26.webp" alt="Kart 26" style="width: 100%; max-width: 100%; margin-top: 40px;" loading="lazy" decoding="async">
             <div class="project" style="margin-top: 60px;">
                 <hr style="border-color: #333; margin-bottom: 20px;">
             </div>
@@ -468,7 +486,7 @@
 
         <div class="toggle-content state-1" id="toggleContent">
             <div class="profile-picture">
-                <img src="Images/about-me-professional.png" alt="Portfolio Icon">
+                <img src="Images/about-me-professional.webp" alt="Portfolio Icon" loading="lazy" decoding="async">
             </div>
             <div class="toggle-text">
                 <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>
@@ -555,7 +573,7 @@
                 toggleContent.classList.add('state-1');
                 toggleContent.innerHTML = `
                     <div class="profile-picture">
-                        <img src="Images/about-me-professional.png" alt="Portfolio Icon">
+                        <img src="Images/about-me-professional.webp" alt="Portfolio Icon" loading="lazy" decoding="async">
                     </div>
                     <div class="toggle-text">
                         <h1 style="color: #dcdcdc;font-size: 30px; text-align: left;">Professional</h1>
@@ -569,7 +587,7 @@
                 toggleContent.classList.add('state-2');
                 toggleContent.innerHTML = `
                     <div class="profile-picture">
-                        <img src="Images/about-me-personal.png" alt="Portfolio Icon">
+                        <img src="Images/about-me-personal.webp" alt="Portfolio Icon" loading="lazy" decoding="async">
                     </div>
                     <div class="toggle-text">
                         <h1 style="color: #121212;font-size: 30px; text-align: left;">Personal</h1>
