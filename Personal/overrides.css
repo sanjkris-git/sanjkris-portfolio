@@ -1,0 +1,487 @@
+/* Deterministic responsive layer loaded after the extracted legacy rules. */
+:root {
+    --page-gutter: clamp(16px, 4vw, 48px);
+    --touch-size: 44px;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+.contact-info a,
+.link-bar a {
+    color: #aaa !important;
+    text-decoration: none !important;
+}
+
+.toggle-content.state-2 .toggle-text h1 {
+    color: #000 !important;
+}
+
+.link-bar {
+    padding: 0 var(--page-gutter) 40px;
+}
+
+.link-bar > hr {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 20px 0;
+}
+
+.link-bar > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 40px;
+    padding: 20px 0;
+}
+
+.sidebar img[alt="Letterboxd"] {
+    width: 22.8px;
+    height: 22.8px;
+    border-radius: 6px;
+    display: block;
+}
+
+button,
+.carousel-button,
+.arrow-btn,
+.btn,
+.yt-btn {
+    min-width: var(--touch-size);
+    min-height: var(--touch-size);
+    touch-action: manipulation;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative !important;
+        inset: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 18px var(--page-gutter) 10px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 4px 14px !important;
+        margin: 0 !important;
+    }
+
+    .nav-menu li {
+        margin: 0 !important;
+        font-size: 15px !important;
+    }
+
+    .nav-menu a {
+        display: flex !important;
+        align-items: center;
+        min-height: var(--touch-size);
+        padding: 8px 0 !important;
+    }
+
+    .social-icons {
+        flex-direction: row !important;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 20px !important;
+        margin: 0 !important;
+    }
+
+    .social-icons a {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--touch-size);
+        min-height: var(--touch-size);
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 28px var(--page-gutter) 44px !important;
+        min-width: 0;
+    }
+
+    .hero {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 28px !important;
+        margin: 20px 0 40px !important;
+        text-align: center;
+    }
+
+    .hero h1,
+    .about-me-body h1,
+    .resume-header h1,
+    .experience-header h1,
+    .gallery-header h1 {
+        font-size: clamp(2.35rem, 11vw, 4rem) !important;
+        letter-spacing: 0 !important;
+        overflow-wrap: anywhere;
+    }
+
+    .hero h2 {
+        margin-bottom: 0 !important;
+    }
+
+    .image,
+    .github-card,
+    .timeline-content,
+    .youtube-showcase {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0;
+    }
+
+    .bottom-content,
+    .github-projects,
+    .projects,
+    .projects-section,
+    .download-buttons {
+        flex-direction: column !important;
+        align-items: stretch;
+        gap: 24px;
+    }
+
+    .about-me-body {
+        height: auto !important;
+        padding: 36px var(--page-gutter) !important;
+    }
+
+    .toggle-content {
+        flex-direction: column !important;
+        gap: 30px !important;
+        padding: 20px !important;
+        text-align: center;
+    }
+
+    .profile-picture {
+        width: min(200px, 72vw) !important;
+        height: min(200px, 72vw) !important;
+        align-self: center;
+    }
+
+    .card-stack-container {
+        flex-direction: column !important;
+        gap: 16px;
+    }
+
+    .carousel-slide {
+        height: min(62vh, 420px) !important;
+    }
+
+    .timeline-container {
+        padding-left: 24px !important;
+    }
+
+    .timeline-line,
+    .timeline-progress {
+        left: 8px !important;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        width: 100% !important;
+        left: 0 !important;
+        padding: 0 0 28px 24px !important;
+        text-align: left !important;
+    }
+
+    .timeline-item.left .timeline-dot,
+    .timeline-item.right .timeline-dot {
+        left: -1px !important;
+        right: auto !important;
+    }
+
+    .timeline-item.left .timeline-date,
+    .timeline-item.right .timeline-date {
+        position: static !important;
+        display: block;
+        margin: 0 0 8px;
+    }
+
+    .link-bar a {
+        display: inline-flex;
+        align-items: center;
+        min-height: var(--touch-size);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding-inline: 16px !important;
+    }
+
+    .nav-menu {
+        gap: 2px 10px !important;
+    }
+
+    .nav-menu li {
+        font-size: 13px !important;
+    }
+
+    .carousel-slide {
+        height: 52vh !important;
+        min-height: 260px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* Center the page content only in the mobile layout. */
+@media (max-width: 768px) {
+    body,
+    .main-content,
+    .about-me-body,
+    .link-bar,
+    .projects-wrapper,
+    .projects-section,
+    .resume-header,
+    .resume-container,
+    .gallery-header,
+    .project-header,
+    .section-title,
+    .timeline-container,
+    .youtube-showcase,
+    .toggle-content,
+    .github-projects,
+    .card-stack-container {
+        text-align: center !important;
+    }
+
+    .main-content {
+        align-items: center !important;
+    }
+
+    .main-content > *,
+    .about-me-body > *,
+    .projects-wrapper > *,
+    .link-bar > *,
+    .resume-container > *,
+    .timeline-container > *,
+    .github-projects > *,
+    .card-stack-container > * {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero,
+    .bottom-content,
+    .toggle-content,
+    .youtube-showcase,
+    .download-buttons {
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .hero-text,
+    .contact-info,
+    .toggle-text,
+    .yt-text,
+    .timeline-content,
+    .project-header {
+        text-align: center !important;
+    }
+
+    .toggle-text,
+    .yt-text {
+        align-items: center;
+    }
+
+    .resume-container,
+    .github-projects,
+    .projects-section,
+    .timeline-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        white-space: nowrap;
+        margin-bottom: 68px !important;
+    }
+
+    .hero h1 br {
+        display: none;
+    }
+
+    .social-icons {
+        display: none !important;
+    }
+
+    .nav-menu > li:nth-of-type(4),
+    .nav-menu > li:nth-of-type(5) {
+        display: none !important;
+    }
+
+    .nav-menu > li.has-mobile-project-menu {
+        position: relative;
+        display: inline-flex !important;
+        align-items: center;
+    }
+
+    .mobile-project-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--touch-size);
+        height: var(--touch-size);
+        margin-left: 2px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+    }
+
+    .mobile-project-toggle span {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg) translate(-2px, -2px);
+        transition: transform 180ms ease;
+    }
+
+    .menu-open .mobile-project-toggle span {
+        transform: rotate(225deg) translate(-2px, -2px);
+    }
+
+    .mobile-project-menu {
+        position: absolute;
+        z-index: 20;
+        top: calc(100% + 4px);
+        left: 50%;
+        display: none;
+        min-width: 150px;
+        padding: 6px;
+        transform: translateX(-50%);
+        background: #1c1c1c;
+        border: 1px solid #444;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    .menu-open .mobile-project-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-project-menu a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--touch-size);
+        padding: 8px 14px;
+        color: #dcdcdc !important;
+        text-decoration: none;
+    }
+
+    .link-bar a[href^="mailto:"] {
+        display: none !important;
+    }
+}
+
+.mobile-project-toggle {
+    display: none;
+}
+
+.mobile-project-menu {
+    display: none;
+}
+
+@media (max-width: 768px) and (hover: none),
+       (max-width: 768px) and (pointer: coarse) {
+    .image:hover,
+    .profile-picture:hover,
+    .github-card:hover,
+    .youtube-showcase:hover,
+    .timeline-content:hover,
+    .back-button:hover,
+    .carousel-button:hover,
+    .arrow-btn:hover,
+    .yt-btn:hover,
+    .btn-pdf:hover,
+    .btn-png:hover,
+    .nav-menu a:hover,
+    .social-icons a:hover,
+    .link-bar a:hover,
+    .contact-info a:hover {
+        transform: none !important;
+        color: inherit !important;
+        box-shadow: none !important;
+    }
+
+    .mobile-project-toggle:hover,
+    .mobile-project-menu a:hover {
+        color: inherit !important;
+        background: transparent !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        touch-action: pan-y;
+    }
+
+    .mobile-project-toggle {
+        display: inline-flex !important;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin: 0;
+        transform: translateY(-50%);
+    }
+
+    .carousel-slide {
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .gallery-header .eyebrow,
+    .eyebrow {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: clamp(0.85rem, 4.3vw, 1.05rem) !important;
+        line-height: 1.4 !important;
+        white-space: nowrap;
+    }
+}
